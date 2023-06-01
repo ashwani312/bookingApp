@@ -1,7 +1,10 @@
 import React from 'react'
+import Header from '../../componants/header/Header'
 
 export default function Hotel() {
   return (
-    <div>hotel</div>
+    <>
+    <Header type= 'list'/>
+    </>
   )
 }
