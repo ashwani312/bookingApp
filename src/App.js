@@ -14,10 +14,10 @@ function App() {
    <div className="appFont">
    <BrowserRouter>
    <Routes>
-    <Route path = '/' element={<Home/>}/>
-    <Route path = '/list' element={<List/>}/>
-     <Route path = '/hotel' element = {<Hotel/>}/>
-     <Route path = '/signup' element = {<SignIn/>}/>
+    <Route path = '/React_booking.com/' element={<Home/>}/>
+    <Route path = 'React_booking.com/list' element={<List/>}/>
+     <Route path = 'React_booking.com/hotel' element = {<Hotel/>}/>
+     <Route path = 'React_booking.com/signup' element = {<SignIn/>}/>
    </Routes>
    </BrowserRouter>
    </div>
