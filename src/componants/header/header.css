@@ -29,10 +29,8 @@
  
 }
 .headerListItem:hover{
-   scale: 1.08;
+   scale: 1.02;
    transition: 0.2s all;
-   /* border: 2px solid rgb(255, 249, 249, 0.1); */
-   /* padding: 0px 8px; */
    background-color: rgb(255, 249, 249, 0.1);
    border-radius: 20px;
 }

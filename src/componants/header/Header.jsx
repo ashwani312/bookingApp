@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAustralSign, faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi } from '@fortawesome/free-solid-svg-icons'
+import { faAustralSign, faBed, faCalendarDays, faCar, faPerson, faPlane } from '@fortawesome/free-solid-svg-icons'
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -30,8 +30,8 @@ export default function Header(props) {
     const handleSearch = () =>{
       navigate('/list',{state: {destination, date, option}});
     }
-    const handleIncrease = () =>{
-
+    const handleSignIn = () =>{
+            navigate('/signup')
     }
     return (
         <div className="header">
@@ -69,9 +69,9 @@ export default function Header(props) {
                     A lifetime of discount? It's Genious.
                 </h1>
                 <p className="headerDesc">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti optio voluptatibus tenetur, ad fugit sint molestiae praesentium? Hic, doloribus atque!
+                  Get rewarded for your travels - unlock instant savings of 10% or or more with a free booking account
                 </p>
-                <button className='headerBtn'>Sign in / Register</button>
+                <button className='headerBtn' onClick={handleSignIn}>Sign in / Register</button>
                 <div className="headerSearch">
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faBed} className='headerIcon' />
@@ -103,29 +103,91 @@ export default function Header(props) {
                             <div className="optionItem">
                                 <span className="optionText">Adult</span>
                                 <div className="optionCounter">
-                                    <button className="optionCounterButton" onClick={()=>handleIncrease('a')}>-</button>
+                                    <button className="optionCounterButton" 
+                                      onClick={()=>{
+                                        if(option.adult <= 1){
+                                            return
+                                        }
+                                        option.adult = option.adult - 1
+                                        setOption({
+                                            adult : option.adult,
+                                            room : option.room,
+                                            children : option.children
+                                        })
+                                    }}
+                                    >-</button>
                                     <span className="optionCounterNumber">{option.adult}</span>
-                                    <button className="optionCounterButton" onClick={()=>handleIncrease('a')}>+</button>
+                                    <button className="optionCounterButton" 
+                                        onClick={()=>{
+                                          
+                                            option.adult = option.adult + 1
+                                            setOption({
+                                                adult : option.adult,
+                                                room : option.room,
+                                                children : option.children
+                                            })
+                                        }}
+                                    >+</button>
                                 </div>
 
                             </div>
                             <div className="optionItem">
                                 <span className="optionText">Children</span>
                                 <div className="optionCounter">
-                                    <button className="optionCounterButton" onClick={()=>handleIncrease('c')}>-</button>
+                                    <button className="optionCounterButton" 
+                                    onClick={()=>{
+                                        if(option.children <= 0){
+                                            return
+                                        }
+                                        option.children = option.children - 1
+                                        setOption({
+                                            adult : option.adult,
+                                            room : option.room,
+                                            children : option.children
+                                        })
+                                    }}
+                                    >-</button>
                                     <span className="optionCounterNumber">{option.children}</span>
-                                    <button className="optionCounterButton" onClick={()=>handleIncrease('c')}>+</button>
+                                    <button className="optionCounterButton" 
+                                      onClick={()=>{
+                                      
+                                        option.children = option.children + 1
+                                        setOption({
+                                            adult : option.adult,
+                                            room : option.room,
+                                            children : option.children
+                                        })
+                                    }}
+                                    >+</button>
                                 </div>
                             </div>
                             <div className="optionItem">
                                 <span className="optionText">room</span>
                                 <div className="optionCounter">
-                                    <button className="optionCounterButton" onClick={()=>handleIncrease('r')}>-</button>
+                                    <button className="optionCounterButton" 
+                                     onClick={()=>{
+                                        if(option.room <= 1){
+                                              return;
+                                        }
+                                        option.room = option.room - 1;
+                                       console.log(option.room)
+                                       setOption({
+                                              adult : option.adult,
+                                            children : option.children,
+                                           room : option.room
+                                       })
+                               }}
+                                    >-</button>
                                     <span className="optionCounterNumber">{option.room}</span>
                                     <button className="optionCounterButton" 
                                     onClick={()=>{
-                                    let  op =  option.room + 1
-                                        setOption(op)
+                                             option.room = option.room + 1;
+                                            console.log(option.room)
+                                            setOption({
+                                                adult : option.adult,
+                                                children : option.children,
+                                                room : option.room
+                                            })
                                     }}
                                     >+</button>
                                 </div>

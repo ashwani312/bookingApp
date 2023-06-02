@@ -1,8 +1,9 @@
 import React from 'react'
 import './searchItem.css'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-export default function SearchItem() {
+export default function SearchItem(props) {
+  console.log(props)
   const navigate = useNavigate()
 
   const handleClick = () =>{
@@ -11,7 +12,7 @@ export default function SearchItem() {
 
   return (
     <div className='SearchItem'>
-        <img src="https://cf.bstatic.com/xdata/images/hotel/square600/87428762.webp?k=de5db8fe94cbfe08d3bf16d3c86def035fd73b43ee497cffe27b03363764e0e2&o=" alt="" className='siImg'/>
+        <img src={props.url} alt="" className='siImg'/>
         <div className="siDesk">
           <h1 className='siTitle'>Tower Street Apartment</h1>
           <span className="siDistance">500m from center</span>
