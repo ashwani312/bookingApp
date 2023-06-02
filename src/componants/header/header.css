@@ -26,7 +26,15 @@
     display: flex;
     align-items: center;
     gap: 10px;
-   
+ 
+}
+.headerListItem:hover{
+   scale: 1.08;
+   transition: 0.2s all;
+   /* border: 2px solid rgb(255, 249, 249, 0.1); */
+   /* padding: 0px 8px; */
+   background-color: rgb(255, 249, 249, 0.1);
+   border-radius: 20px;
 }
 .headerListItem.active{
     
@@ -60,7 +68,7 @@
     bottom: -25px;
     width: 100%;
     max-width: 1024px;
-
+   
 }
 .headerIcon{
     color: rgb(172, 159, 159);
@@ -68,6 +76,8 @@
 .headerSearchItem{
     display: flex;
     gap: 15px;
+   
+    
 }
 .headerSearchInput{
     border: none;

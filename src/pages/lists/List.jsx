@@ -6,9 +6,14 @@ import { useLocation } from 'react-router-dom'
 import { format } from 'date-fns'
 import { DateRange } from 'react-date-range'
 import SearchItem from '../../componants/searchItem/SearchItem'
+import MailList from '../../componants/mailList/MailList'
+import Footer from '../../componants/Footer/Footer'
 
 
 export default function List() {
+
+  
+
   const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination)
   const [date, setDate] = useState(location.state.date)
@@ -81,7 +86,10 @@ export default function List() {
               <SearchItem/>
             </div>
           </div>
+          <MailList/>
+        <Footer/>
         </div>
+        
       </div>
       )
 }

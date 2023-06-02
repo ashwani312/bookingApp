@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi } from '@fortawesome/free-solid-svg-icons'
+import { faAustralSign, faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi } from '@fortawesome/free-solid-svg-icons'
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -30,6 +30,9 @@ export default function Header(props) {
     const handleSearch = () =>{
       navigate('/list',{state: {destination, date, option}});
     }
+    const handleIncrease = () =>{
+
+    }
     return (
         <div className="header">
             <div className={props.type === 'list'?"headerContainer headerWidth" : "headerContainer"}>
@@ -50,7 +53,7 @@ export default function Header(props) {
                     </div>
 
                     <div className="headerListItem">
-                        <FontAwesomeIcon icon={faTaxi} />
+                        <FontAwesomeIcon icon={faAustralSign} />
                         <span>Attractions</span>
                     </div>
 
@@ -100,26 +103,31 @@ export default function Header(props) {
                             <div className="optionItem">
                                 <span className="optionText">Adult</span>
                                 <div className="optionCounter">
-                                    <button className="optionCounterButton">-</button>
-                                    <span className="optionCounterNumber">1</span>
-                                    <button className="optionCounterButton">+</button>
+                                    <button className="optionCounterButton" onClick={()=>handleIncrease('a')}>-</button>
+                                    <span className="optionCounterNumber">{option.adult}</span>
+                                    <button className="optionCounterButton" onClick={()=>handleIncrease('a')}>+</button>
                                 </div>
 
                             </div>
                             <div className="optionItem">
                                 <span className="optionText">Children</span>
                                 <div className="optionCounter">
-                                    <button className="optionCounterButton">-</button>
-                                    <span className="optionCounterNumber">1</span>
-                                    <button className="optionCounterButton">+</button>
+                                    <button className="optionCounterButton" onClick={()=>handleIncrease('c')}>-</button>
+                                    <span className="optionCounterNumber">{option.children}</span>
+                                    <button className="optionCounterButton" onClick={()=>handleIncrease('c')}>+</button>
                                 </div>
                             </div>
                             <div className="optionItem">
                                 <span className="optionText">room</span>
                                 <div className="optionCounter">
-                                    <button className="optionCounterButton">-</button>
-                                    <span className="optionCounterNumber">1</span>
-                                    <button className="optionCounterButton">+</button>
+                                    <button className="optionCounterButton" onClick={()=>handleIncrease('r')}>-</button>
+                                    <span className="optionCounterNumber">{option.room}</span>
+                                    <button className="optionCounterButton" 
+                                    onClick={()=>{
+                                    let  op =  option.room + 1
+                                        setOption(op)
+                                    }}
+                                    >+</button>
                                 </div>
                             </div>
                         </div>}

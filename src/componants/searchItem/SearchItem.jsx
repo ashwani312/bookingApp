@@ -1,7 +1,14 @@
 import React from 'react'
 import './searchItem.css'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export default function SearchItem() {
+  const navigate = useNavigate()
+
+  const handleClick = () =>{
+    navigate('/hotel')
+  }
+
   return (
     <div className='SearchItem'>
         <img src="https://cf.bstatic.com/xdata/images/hotel/square600/87428762.webp?k=de5db8fe94cbfe08d3bf16d3c86def035fd73b43ee497cffe27b03363764e0e2&o=" alt="" className='siImg'/>
@@ -29,7 +36,7 @@ export default function SearchItem() {
           <div className="siDetailsTexts">
             <span className="siPrice">$123</span>
             <span className="siTaxOp">Include taxes and fees</span>
-            <button className="siCheckButton">See availibility</button>
+            <button className="siCheckButton" onClick={handleClick}>See availibility</button>
           </div>
         </div>
     </div>
