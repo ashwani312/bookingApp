@@ -1,0 +1,16 @@
+.flightsLists{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flightsLists .flight {
+  display: flex;
+  padding: 5px;
+  border: 1px solid black;
+  flex-direction: column;
+}
+.flight img{
+    height: 250px;
+    width: 270px;
+    object-fit: cover;
+    border-radius: 10px;
+}
